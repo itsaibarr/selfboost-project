@@ -1,6 +1,6 @@
 import type { Route } from "./+types/home";
-import Progress from "../components/today-progress-bar.jsx";
 import ToDoList from "../components/to-do-list.jsx";
+import Tasks from "../components/tasks.jsx";
 
 
 export function meta({}: Route.MetaArgs) {
@@ -13,8 +13,8 @@ export function meta({}: Route.MetaArgs) {
 export default function Home() {
   return (
       <div>
-          <Progress/>
           <ToDoList/>
+          <Tasks/>
       </div>
   );
 }
