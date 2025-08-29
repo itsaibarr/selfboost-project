@@ -49,6 +49,14 @@ export default function DailyTasks() {
         );
     }, []);
 
+    useEffect(() => {
+        if (totalCount > 0 && completedCount === totalCount) {
+            // Импортируем Streak и вызываем update
+            const streakEvent = new CustomEvent("updateStreak");
+            window.dispatchEvent(streakEvent);
+        }
+    }, [completedCount, totalCount]);
+
     const toggleTask = (id: number) => {
         const updated = tasks.map((t) =>
             t.id === id ? { ...t, completed: !t.completed } : t
